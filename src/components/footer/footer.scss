@@ -1,0 +1,86 @@
+.content {
+  display: flex;
+  align-items: flex-start;
+
+  h3 {
+    color: var(--color-white);
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 10px 0 30px;
+  }
+
+  .introduction {
+    width: 25%;
+    padding: 20px 15px;
+
+    p {
+      font-size: 16px;
+      color: var(--color-white);
+      padding-bottom: 20px;
+      line-height: 20px;
+    }
+
+    .social {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+  
+      .facebook {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: #272727;
+        color: var(--color-white);
+        margin-right: 10px;
+      }
+  
+      .youtube {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: #272727;
+        color: var(--color-white);
+      }
+    }
+  }
+
+  .policy {
+    width: 25%;
+    padding: 20px 15px;
+
+    ul {
+      list-style: none;
+
+      li {
+        font-size: 16px;
+        color: var(--color-white);
+        line-height: 30px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .contact-info {
+    width: 25%;
+    padding: 20px 15px;
+
+    p {
+      font-size: 16px;
+      color: var(--color-white);
+      line-height: 20px;
+    }
+  }
+
+  .fanpage {
+    width: 25%;
+    padding: 20px 15px;
+
+    
+  }
+}
