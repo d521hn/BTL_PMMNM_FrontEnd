@@ -1,0 +1,18 @@
+.list-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 65px;
+
+  .item-navigation {
+    font-size: 24px;
+    color: var(--color-white);
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 800;
+
+    &:hover {
+      color: #f1d50b;
+    }
+  }
+}

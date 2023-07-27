@@ -4,7 +4,6 @@ import ReduxToastr from "react-redux-toastr";
 
 import store from "./redux/store/index";
 import AppRoutes from "./routes/Routes";
-import { Header } from "./components";
 
 const App = () => (
   <Provider store={store}>
