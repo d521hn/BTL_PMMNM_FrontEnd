@@ -7,7 +7,7 @@ const Footer = () => {
   const { FaFacebookF, TfiYoutube } = icons;
   return (
     <div className="w-full bg-main">
-      <div className="content">
+      <div className="content footer">
         <div className="introduction">
           <h3>Giới thiệu</h3>
           <p>
