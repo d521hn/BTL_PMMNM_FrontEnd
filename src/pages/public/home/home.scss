@@ -31,3 +31,23 @@
     }
   }
 }
+
+.video-outstanding {
+  background-color: var(--bg-orange);
+  padding-bottom: 90px;
+
+  .title-video {
+    font-size: 28px;
+    color: var(--color-white);
+    text-align: center;
+    padding: 25px 0;
+  }
+
+  .list-video {
+    text-align: center;
+
+    .item-yt {
+      margin: 0 20px;
+    }
+  }
+}
