@@ -21,6 +21,9 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <div className="discover">
+        <h3 className="title-discover">Khám phá đồ chơi độc đáo</h3>
+      </div>
     </div>
   )
 };
