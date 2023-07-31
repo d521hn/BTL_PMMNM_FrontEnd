@@ -35,11 +35,17 @@ body {
   line-height: 1;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 :root {
   --main-color: #144c95;
   --color-gray: #e5e5e5;
   --color-white: #fff;
   --color-red: #c4302b;
+  --color-text-red: #e21825;
+  --bg-orange: #ffc402;
 }
 
 .w-full {
