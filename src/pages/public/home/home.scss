@@ -51,3 +51,21 @@
     }
   }
 }
+
+.discover {
+  margin: 50px auto;
+  
+  .title-discover {
+    font-size: 28px;
+    color: var(--main-color);
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+
+  .list-products-home {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+}

@@ -7,7 +7,7 @@ const homeRoutes = [
     component: Home
   },
   {
-    path: path.COLLECTION,
+    path: path.COLLECTIONS,
     component: ProductGroup
   },
 ]

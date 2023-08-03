@@ -8,7 +8,7 @@ const Header = () => {
     const { AiOutlineSearch, FaFacebookF, TfiYoutube, FaUserCircle, BsFillCartFill } = icons;
     return (
       <div className="w-full">
-        <div className="content header">
+        <div className="content-custom header">
           <Link to={path.HOME}>
             <img
               src="https://theme.hstatic.net/1000117512/1000772323/14/logo.png?v=953"
