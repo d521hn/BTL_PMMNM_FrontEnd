@@ -1,0 +1,25 @@
+.checklist-brand {
+  padding: 15px;
+
+  .title-box-filter {
+    cursor: pointer;
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 14px;
+
+    span {
+      padding: 0 5px;
+    }
+  }
+
+  .item-brand {
+    color: var(--main-color);
+    padding: 3px 0;
+    font-size: 14px;
+    
+    label {
+      cursor: pointer;
+      padding-left: 7px;
+    }
+  }
+}

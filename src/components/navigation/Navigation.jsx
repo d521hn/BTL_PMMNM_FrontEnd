@@ -9,7 +9,7 @@ const Navigation = () => {
   
     return (
       <div className="w-full bg-main">
-        <div className="content list-navigation">
+        <div className="content-custom list-navigation">
           {navigations.map((el) => (
             <Link to={el.path} className="item-navigation" key={el.id}>{el.name}</Link>
           ))}

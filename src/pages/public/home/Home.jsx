@@ -22,9 +22,19 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <div className="discover">
+      <div className="discover content-custom">
         <h3 className="title-discover">Khám phá đồ chơi độc đáo</h3>
-        <Product/>
+        <div className="list-products-home">
+          <Product/>
+          <Product/>
+          <Product/>
+          <Product/>
+          <Product/>
+          <Product/>
+          <Product/>
+          <Product/>
+
+        </div>
       </div>
       <div className="video-outstanding">
         <h2 className="title-video">Video sản phẩm nổi bật</h2>

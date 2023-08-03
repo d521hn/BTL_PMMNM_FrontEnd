@@ -1,0 +1,12 @@
+.navigation {
+  padding: 15px 0px;
+  
+  .text-breadcrumb {
+    padding: 15px;
+    color: var(--main-color);
+
+    &:hover {
+      color: var(--bg-orange);
+    }
+  }
+}
