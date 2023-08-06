@@ -1,0 +1,29 @@
+.item-blog {
+  display: flex;
+  margin: 20px 0;
+  width: 100%;
+
+  img {
+    width: 295px;
+    height: 295px;
+    object-fit: cover;
+  }
+
+  .summary-blog {
+    color: var(--main-color);
+    padding-left: 30px;
+
+    .title-blog {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .author {
+      display: flex;
+
+      .box-author {
+        padding-right: 10px;
+      }
+    }
+  }
+}

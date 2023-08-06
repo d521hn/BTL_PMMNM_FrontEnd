@@ -9,6 +9,7 @@ const Breadcrumb = ({ title }) => {
     { path: "/collections", breadcrumb:  "Danh mục"},
     { path: "/collections/:value", breadcrumb: title },
     { path: "/cart", breadcrumb: "Giỏ hàng" },
+    { path: "/blog", breadcrumb: "Bài viết" },
   ];
   const breadcrumbs = useBreadcrumbs(routes);
   return (

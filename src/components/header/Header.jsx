@@ -3,6 +3,7 @@ import './header.scss'
 import { Link } from "react-router-dom";
 import path from "../../ultils/path";
 import icons from "../../ultils/icons";
+import logo from '../../assets/images/logo.png'
 
 const Header = () => {
     const { AiOutlineSearch, FaFacebookF, TfiYoutube, FaUserCircle, BsFillCartFill } = icons;
@@ -11,7 +12,7 @@ const Header = () => {
         <div className="content-custom header">
           <Link to={path.HOME}>
             <img
-              src="https://theme.hstatic.net/1000117512/1000772323/14/logo.png?v=953"
+              src={logo}
               alt=""
               className="logo-page"
             />
