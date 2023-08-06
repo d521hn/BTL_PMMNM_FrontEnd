@@ -1,19 +1,20 @@
 import path from "./path"
+import slider1 from '../assets/images/slider1.png';
 
 export const navigations = [
   {
     id: 1,
-    name: 'Có gì hot?',
-    path: path.BLOG
+    name: 'Nhóm',
+    path: path.COLLECTIONS
   },
   {
     id: 2,
-    name: 'Sale',
+    name: 'Thương hiệu',
     path: path.COLLECTIONS
   },
   {
     id: 3,
-    name: 'Giới tính',
+    name: 'Sale',
     path: path.COLLECTIONS
   },
   {
@@ -23,16 +24,11 @@ export const navigations = [
   },
   {
     id: 5,
-    name: 'Nhóm',
-    path: path.COLLECTIONS
+    name: 'Bài viết',
+    path: path.BLOG
   },
   {
     id: 6,
-    name: 'Thương hiệu',
-    path: path.COLLECTIONS
-  },
-  {
-    id: 7,
     name: 'Thông tin',
     path: path.COLLECTIONS
   }
@@ -41,7 +37,7 @@ export const navigations = [
 export const banners = [
   {
     id: 1,
-    srcImg: 'https://theme.hstatic.net/1000117512/1000772323/14/slideshow_1.jpg?v=953'
+    srcImg: slider1
   },
 
   {
