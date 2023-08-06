@@ -1,8 +1,9 @@
 const path = {
   PUBLIC: '/',
-  HOME: '',
+  HOME: '/',
   COLLECTIONS: 'collections',
-  FILTER_PRODUCT: 'collections/:value'
+  FILTER_PRODUCT: 'collections/:value',
+  CART: 'cart'
 }
 
 export default path
