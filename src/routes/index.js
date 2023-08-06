@@ -1,4 +1,4 @@
-import { Home, ProductGroup } from "../pages/public/index"
+import { Cart, Home, ProductGroup } from "../pages/public/index"
 import path from "../ultils/path"
 
 const homeRoutes = [
@@ -10,6 +10,10 @@ const homeRoutes = [
     path: path.COLLECTIONS,
     component: ProductGroup
   },
+  {
+    path: path.CART,
+    component: Cart
+  }
 ]
 
 export { homeRoutes };

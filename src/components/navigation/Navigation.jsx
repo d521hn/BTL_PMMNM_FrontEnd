@@ -3,7 +3,6 @@ import './navigation.scss'
 import { Link } from "react-router-dom";
 import { navigations } from '../../ultils/containts'
 
-navigations.map(el => console.log(el))
 
 const Navigation = () => {
   

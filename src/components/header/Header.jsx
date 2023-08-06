@@ -25,10 +25,12 @@ const Header = () => {
             <Link to={'https://www.youtube.com/'} className="youtube"><TfiYoutube/></Link>
           </div>
           <div className="info-cart">
-            <div className="user">
+            <Link to='' className="user">
               <FaUserCircle/>
-            </div>
-            <BsFillCartFill/><span>(0)</span>
+            </Link>
+            <Link to={path.CART} className="cart">
+              <BsFillCartFill/><span className="count-products">(0)</span>
+            </Link>
           </div>
         </div>
       </div>
