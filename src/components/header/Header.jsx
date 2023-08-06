@@ -26,7 +26,7 @@ const Header = () => {
             <Link to={'https://www.youtube.com/'} className="youtube"><TfiYoutube/></Link>
           </div>
           <div className="info-cart">
-            <Link to='' className="user">
+            <Link to='/login' className="user">
               <FaUserCircle/>
             </Link>
             <Link to={path.CART} className="cart">
