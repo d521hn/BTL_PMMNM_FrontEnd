@@ -1,0 +1,32 @@
+.item-blog-new {
+  display: flex;
+  margin: 20px 0;
+
+  img {
+    width: 76px;
+    height: 76px;
+    object-fit: cover;
+  }
+
+  .title-author {
+    padding-left: 10px;
+    color: var(--main-color);
+
+    .title-blog-new {
+      font-weight: bold;
+    }
+
+    .author {
+ 
+      .name-author {
+        font-size: 12px;
+        padding-right: 5px;
+      }
+
+      .post-date-new {
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+  }
+}

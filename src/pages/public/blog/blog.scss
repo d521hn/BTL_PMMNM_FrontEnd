@@ -1,0 +1,34 @@
+.blog-body {
+  padding: 25px 15px;
+  display: flex;
+  justify-content: space-between;
+  
+
+  .new-blogs {
+    width: 25%;
+    height: 500px;
+    border: 1px solid #ccc;
+    padding: 20px;
+
+    .title-box-left {
+      font-size: 20px;
+      color: var(--main-color);
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--main-color);
+      padding-bottom: 10px;
+    }
+  }
+
+  .list-blog {
+    flex: 1;
+    margin-left: 35px;
+
+    .title-box-right {
+      font-size: 32px;
+      font-weight: bold;
+      color: var(--main-color);
+    }
+  }
+}

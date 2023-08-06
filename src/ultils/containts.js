@@ -4,7 +4,7 @@ export const navigations = [
   {
     id: 1,
     name: 'Có gì hot?',
-    path: path.COLLECTIONS
+    path: path.BLOG
   },
   {
     id: 2,
