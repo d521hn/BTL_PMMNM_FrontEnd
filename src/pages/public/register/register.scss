@@ -1,0 +1,39 @@
+.row {
+    .col-md-6 {
+        border-right: 0.5px solid #ededed;
+        padding: 20px 80px 30px 20px;
+
+        h1::after{
+            content: "";
+            background: #000;
+            display: block;
+            width: 60px;
+            height: 4px;
+            margin-top: 30px;
+        }
+
+        form {
+            .form-group {
+                margin: 30px 0;
+            }
+        }
+
+        .come-back{
+            margin-top: 30px;
+
+            .custom-link{
+                color: #264a9b;
+                font-size: 14px;
+                font-weight: 500;
+                .custom-icon{
+                    margin-right: 10px;
+                }
+            }
+
+            .custom-link:hover{
+                color: #f5d709;
+            }
+        }
+    }
+
+}

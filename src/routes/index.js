@@ -1,4 +1,6 @@
 import { Blog, Cart, Home, ProductGroup } from "../pages/public/index"
+import Login from "../pages/public/login/Login";
+import Register from "../pages/public/register/Register";
 import path from "../ultils/path"
 
 const homeRoutes = [
@@ -17,6 +19,14 @@ const homeRoutes = [
   {
     path: path.BLOG,
     component: Blog
+  },
+  {
+    path: path.REGISTER,
+    component: Register
+  },
+  {
+    path: path.LOGIN,
+    component: Login
   }
 ]
 
