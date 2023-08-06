@@ -1,8 +1,10 @@
 import React from 'react'
 import './blog.scss'
-import { Breadcrumb, ItemBlog, ItemBlogNew } from '../../../components'
+import { Breadcrumb, ItemBlog, ItemBlogNew, Pagination } from '../../../components'
 
 const Blog = () => {
+  const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
+
   return (
     <div className='w-full'>
       <div className="box-breadcrumb">
@@ -24,6 +26,9 @@ const Blog = () => {
               <ItemBlog/>
               <ItemBlog/>
               <ItemBlog/>
+            </div>
+            <div className='content-custom box-pagination'>
+              <Pagination itemsPerPage={4} items={items}/>
             </div>
           </div>
         </div>
