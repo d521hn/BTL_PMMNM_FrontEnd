@@ -1,0 +1,37 @@
+.product-checkout {
+    color: #4b4b4b;
+    font-size: 14px;
+    font-weight: 500;
+
+    .product-img {
+        width: 4.6em;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        padding: 1px;
+        margin: 10px 10px 10px 0;
+        border-radius: 8px;
+        position: relative;
+
+        .product-thumnail {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .product-quantity {
+            position: absolute;
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            background-color: #999999e6;
+            right: -0.75em;
+            top: -0.75em;
+            color: #fff;
+        }
+    }
+
+    .product-price {
+        margin-left: 2em;
+    }
+
+
+}

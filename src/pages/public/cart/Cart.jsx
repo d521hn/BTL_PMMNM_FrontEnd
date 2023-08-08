@@ -11,7 +11,7 @@ const Cart = () => {
   return (
     <div className='w-full'>
       <div className="box-breadcrumb">
-        <Breadcrumb/>
+        <Breadcrumb />
       </div>
       <div className="content-custom">
         <div className="cart-body">
@@ -21,21 +21,23 @@ const Cart = () => {
             </h2>
             <div className="list-product-cart">
               <p className='text-title'>Bạn đang có <span>{countProducts}</span> sản phẩm trong giỏ hàng</p>
-              <ItemProductCart/>
-              <ItemProductCart/>
-              <ItemProductCart/>
-              <ItemProductCart/>
+              <ItemProductCart />
+              <ItemProductCart />
+              <ItemProductCart />
+              <ItemProductCart />
             </div>
           </div>
           <div className='info-cart'>
-            <Link className='comback-home' to={path.HOME}>Tiếp tục mua hàng  <span><BsArrowRight/></span></Link>
+            <Link className='comback-home' to={path.HOME}>Tiếp tục mua hàng  <span><BsArrowRight /></span></Link>
             <div className="info-order">
               <p className='title-info-order'>Thông tin đơn hàng</p>
               <div className='box-total-price'>
                 <p className='text-price'>Tổng tiền:</p>
                 <p className='total-price'>8,000,000đ</p>
               </div>
-              <button className='btn-pay'>Thanh toán</button>
+              <Link to='/checkout' >
+                <button className='btn-pay'>Thanh toán</button>
+              </Link>
             </div>
           </div>
         </div>

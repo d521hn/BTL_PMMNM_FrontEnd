@@ -1,0 +1,30 @@
+.form-check2{
+    padding: 20px 40px;
+    border-bottom: 1px solid #ced4da;
+    .radio-checkout{
+        width: 18px;
+        height: 18px;
+    }
+
+    label{
+        cursor: pointer;
+        .label-img{
+            padding: 0 10px;
+            overflow: hidden;
+
+            img{
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        span{
+            font-size: 15px;
+            color: #737373;
+        }
+    }
+}
+
+.form-check2:last-child{
+    border-bottom: none;
+}

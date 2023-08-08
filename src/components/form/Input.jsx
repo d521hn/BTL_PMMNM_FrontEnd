@@ -4,7 +4,7 @@ import './input.scss';
 const Input = ({ type, id, value, placeholder }) => {
     return (
         <>
-            <div className="form-group">
+            <div className="form-group input1">
                 <input
                     type={type}
                     className="form-control"

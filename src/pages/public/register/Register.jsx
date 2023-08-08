@@ -15,7 +15,7 @@ const Register = () => {
                     <h1>Tạo tài khoản</h1>
                 </div>
                 <div className="col-md-6 col-xs-12">
-                    <form>
+                    <form className='form-register'>
                         <Input
                             type="text"
                             id="firstName"

@@ -1,3 +1,4 @@
+import Checkout from "../pages/public/checkout/Checkout";
 import { Blog, Cart, Home, ProductGroup } from "../pages/public/index"
 import Login from "../pages/public/login/Login";
 import Register from "../pages/public/register/Register";
@@ -30,4 +31,11 @@ const homeRoutes = [
   }
 ]
 
-export { homeRoutes };
+const checkoutRoutes = [
+  {
+    path: path.CHECKOUT,
+    component: Checkout
+  }
+]
+
+export { homeRoutes, checkoutRoutes };

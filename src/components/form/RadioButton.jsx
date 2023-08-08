@@ -4,9 +4,9 @@ import './radioButton.scss'
 const RadioButton = ({id, lableName}) => {
     return (
         <>
-            <div className="form-check">
+            <div className="form-check form-check1">
                 <input
-                    className="form-check-input"
+                    className="form-check-input radio-gender"
                     type="radio"
                     name="gender"
                     id={id}
@@ -15,7 +15,8 @@ const RadioButton = ({id, lableName}) => {
                 <label className="form-check-label" htmlFor={id}>
                     {lableName}
                 </label>
-            </div></>
+            </div>
+            </>
     )
 }
 

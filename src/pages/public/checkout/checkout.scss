@@ -1,0 +1,101 @@
+.row {
+        width: 100wh;
+        font-size: 14px;
+        .col-checkout-left {
+            padding: 50px 50px 50px 150px;
+            border-right: 1px solid #ced4da;
+            .breadcrumb {
+                background-color: #fff;
+                padding-top: 0;
+                margin-bottom: 0;
+
+                .breadcrumb-item {
+                    color: #4d4d4d;
+                    font-size: 14px;
+
+                    .back-to-cart {
+                        color: #338dbc;
+                    }
+                }
+            }
+
+            .form-checkout {
+                .delivery-info,
+                .payment-method {
+                    h3 {
+                        font-size: 18px;
+                        padding: 0 16px 10px;
+                    }
+                }
+
+                .payment-method {
+                    margin-top: 30px;
+
+                    .content-box {
+                        border: 1px solid #ced4da;
+                        margin: 0 16px;
+                        border-radius: 5px;
+
+                        .transfer-detail{
+                            white-space: pre-line;
+                            padding: 1.4em;
+                            color: #737373;
+                            text-align: center;
+                            line-height: 1.5em;
+                            border-bottom: 1px solid #ced4da;
+                            background-color: #fafafa;
+                        }
+                    }
+                }
+
+                .submit-wrap{
+                    margin-top: 30px;
+                    padding: 0 16px;
+
+                    .back-to-cart{
+                        color: #338dbc;
+                    }
+
+                    .btn-complete{
+                        width: 160px;
+                    }
+                }
+            }
+
+        }
+        .col-checkout-right{
+            padding: 50px 150px 50px 50px;
+
+            .list-product{
+                border-bottom: 1px solid #ced4da;
+            }
+
+            .form-discount{
+                padding-top: 16px;
+                border-bottom: 1px solid #ced4da;
+
+                .btn-use{
+                    height: 40px;
+                    width: 100%;
+                }
+            }
+
+            .price{
+                border-bottom: 1px solid #ced4da;
+                padding: 20px 0;
+            }
+
+            .total-price{
+                padding: 20px 0;
+
+                >span:first-of-type{
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+
+                >span:last-of-type{
+                    font-size: 24px;
+                }
+            }
+        }
+    }
