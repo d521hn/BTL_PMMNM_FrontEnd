@@ -23,9 +23,9 @@ const Blog = () => {
           <div className="list-blog">
             <h2 className="title-box-right">Góc đồ chơi</h2>
             <div className="">
-              <ItemBlog/>
-              <ItemBlog/>
-              <ItemBlog/>
+              <ItemBlog id='1'/>
+              <ItemBlog id="2"/>
+              <ItemBlog id="3"/>
             </div>
             <div className='content-custom box-pagination'>
               <Pagination itemsPerPage={4} items={items}/>

@@ -1,0 +1,155 @@
+.box-detail-product {
+  display: flex;
+  margin: 15px 0 100px;
+
+  .box-img {
+    width: 55%;
+    padding: 15px;
+
+
+    img {
+      width: 100%;
+      height: 728px;
+      object-fit: cover;
+    }
+  }
+
+  .box-detail {
+    width: 45%;
+    padding: 15px;
+    
+    .detail-product-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0 0 5px;
+      color: var(--main-color);
+    }
+
+    .detail-product-price {
+      padding: 10px 0;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+
+      .pro-sale {
+        display: inline-block;
+        padding: 5px 15px;
+        margin-right: 10px;
+        background: #f2f5fa;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: bold;
+        color: var(--color-red);
+      }
+
+      .pro-price {
+        font-size: 18px;
+        opacity: 0.92;
+        font-weight: bold;
+        color: var(--main-color);
+      }
+
+      .pro-price-old {
+        font-size: 14px;
+        color: #777a7b;
+        padding-left: 10px;
+        font-weight: bold;
+      }
+    }
+
+    .quantity-product {
+      padding: 20px 0 15px;
+
+      .btn-detail-product {
+        background: #f3f4f4;
+        border: solid 1px #f3f4f4;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        outline: none;
+        height: 32px;
+        width: 32px;
+        text-align: center;
+        color: var(--main-color);
+      }
+
+      .quantity-selector {
+        background: var(--color-white);
+        height: 32px;
+        text-align: center;
+        width: 70px;
+        border: 1px solid #f3f4f4;
+        border-left: none;
+        border-right: none;
+        border-radius: 1px;
+        color: var(--main-color);
+      }
+    }
+
+    .addcart-buynow {
+      display: flex;
+      justify-content: space-between;
+      color: var(--color-white);
+
+      button {
+        font-family: 'Paytone One', sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        font-weight: bold;
+        box-shadow: none;
+        padding: 14px 15px;
+        width: 48%;
+        line-height: 22px;
+        color: var(--color-white);
+        border-radius: 10px;
+
+        &:hover {
+          background-color: var(--color-white);
+          color: var(--color-black);
+        }
+      }
+
+      .add-to-cart {
+        background-color: var(--color-green);
+        border: 1px solid var(--color-green);
+        
+      }
+
+      .buy-now {
+        background-color: var(--main-color);
+        border: 1px solid var(--main-color);
+        
+      }
+    }
+
+    .product-description {
+      margin: 40px 0;
+
+      .tabs-clearfix {
+        padding: 0 15px;
+        display: flex;
+        list-style: none;
+        border-bottom: 2px solid var(--main-color);
+
+        li {
+          text-transform: uppercase;
+          padding: 8px 12px;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        .active {
+          color: var(--color-white);
+          background-color: var(--main-color);
+        }
+      }
+
+      .content-description {
+        color: var(--main-color);
+        line-height: 18px;
+      }
+    }
+  }
+}

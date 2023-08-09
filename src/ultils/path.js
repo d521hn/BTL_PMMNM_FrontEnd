@@ -7,7 +7,9 @@ const path = {
   BLOG: 'blog',
   REGISTER: 'register',
   LOGIN: 'login',
-  CHECKOUT: 'checkout'
+  CHECKOUT: 'checkout',
+  DETAIL_PRODUCT: 'detail-product',
+  BLOGDETAIL: 'blog/:id'
 }
 
 export default path

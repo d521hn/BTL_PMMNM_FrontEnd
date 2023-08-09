@@ -3,9 +3,9 @@ import './itemBlog.scss'
 import { Link } from 'react-router-dom'
 
 
-const ItemBlog = () => {
+const ItemBlog = ({id}) => {
   return (
-    <Link to='/' className='item-blog'>
+    <Link to={`/blog/${id}`} className='item-blog'>
       <img src="https://file.hstatic.net/1000117512/article/z4478570310226_0b817ae4977912e57a83d52192b555fe_4f2f52b185ad4e4a9ba2f44c60601adb_large.jpg" alt="" />
       <div className='summary-blog'>
         <p className="title-blog">

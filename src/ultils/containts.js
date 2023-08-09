@@ -51,6 +51,28 @@ export const banners = [
   },
 ]
 
+export const listImageProduct = [
+  {
+    id: 1,
+    srcImg: 'https://product.hstatic.net/1000117512/product/fantasy_land_set-01_e32fee2ab8644df4b2a70b7f29fd3edf_medium.png'
+  },
+
+  {
+    id: 2,
+    srcImg: 'https://product.hstatic.net/1000117512/product/fantasy_land_set-07_f0c1af6cc5d6401abefd20335a2d4edb_medium.png'
+  },
+
+  {
+    id: 3,
+    srcImg: 'https://product.hstatic.net/1000117512/product/cong_vien_trong_choi_mao_hiem_-_2_b97e59f3aabc48b98799448581dd629e_medium.png'
+  },
+
+  {
+    id: 4,
+    srcImg: 'https://product.hstatic.net/1000117512/product/cong_vien_trong_choi_mao_hiem_-_2_b97e59f3aabc48b98799448581dd629e_medium.png'
+  },
+]
+
 export const categoryHome = [
   {
     id: 1,
