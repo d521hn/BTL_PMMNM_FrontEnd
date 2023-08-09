@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import './product.scss'
 import { Link } from 'react-router-dom'
+import path from '../../ultils/path'
 
 const Product = () => {
   const [isShow, setIsShow] = useState(false)
   const newOrSale = 'new'
   return (
     <Link 
-      to={'/'} 
+      to={path.DETAIL_PRODUCT} 
       className='product'
       onMouseEnter={(e) => {
         e.stopPropagation();
