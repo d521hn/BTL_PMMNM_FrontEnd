@@ -101,6 +101,16 @@ a:hover {
   align-items: center;
 }
 
+.custom-slider-product {
+  padding: 10px 0;
+  height: 140px;
+}
+
+img.img-small-product {
+  height: 120px !important;
+  object-fit: cover;
+}
+
 
 
 
