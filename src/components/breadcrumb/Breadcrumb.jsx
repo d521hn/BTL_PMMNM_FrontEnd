@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 const Breadcrumb = ({ title }) => {
   const routes = [
     { path: "/", breadcrumb: "Trang chủ" },
-    { path: "/collections", breadcrumb:  "Danh mục"},
-    { path: "/collections/:value", breadcrumb: title },
+    { path: "/products", breadcrumb:  "Danh mục"},
+    { path: "/products/:value", breadcrumb: title },
     { path: "/cart", breadcrumb: "Giỏ hàng" },
     { path: "/blog", breadcrumb: "Bài viết" },
   ];

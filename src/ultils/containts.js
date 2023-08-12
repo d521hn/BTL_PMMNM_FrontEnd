@@ -1,26 +1,28 @@
 import path from "./path"
 import slider1 from '../assets/images/slider1.png';
 
+export const portUrl = "http://localhost:8080/api/v1"
+
 export const navigations = [
   {
     id: 1,
     name: 'Nhóm',
-    path: path.COLLECTIONS
+    path: path.PRODUCTS
   },
   {
     id: 2,
     name: 'Thương hiệu',
-    path: path.COLLECTIONS
+    path: path.PRODUCTS
   },
   {
     id: 3,
     name: 'Sale',
-    path: path.COLLECTIONS
+    path: path.PRODUCTS
   },
   {
     id: 4,
     name: 'Tuổi',
-    path: path.COLLECTIONS
+    path: path.PRODUCTS
   },
   {
     id: 5,
@@ -30,7 +32,7 @@ export const navigations = [
   {
     id: 6,
     name: 'Thông tin',
-    path: path.COLLECTIONS
+    path: path.PRODUCTS
   }
 ]
 
@@ -121,22 +123,22 @@ export const sortOld = [
   {
     id: 1,
     title: '0-2 tuổi',
-    path: '/collections/1-3-tuoi'
+    path: '/products/1-3-tuoi'
   },
   {
     id: 2,
     title: 'Bé gái 3-6 tuổi',
-    path: '/collections/3-6-tuoi'
+    path: '/products/3-6-tuoi'
   },
   {
     id: 3,
     title: 'Bé trai 3-6 tuổi',
-    path: '/collections/be-tra-3-6-tuoi'
+    path: '/products/be-tra-3-6-tuoi'
   },
   {
     id: 4,
     title: 'Bé trai 7-12 tuổi',
-    path: '/collections/be-trai-7-12tuoi'
+    path: '/products/be-trai-7-12tuoi'
   },
 ]
 

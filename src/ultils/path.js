@@ -1,8 +1,8 @@
 const path = {
   PUBLIC: '/',
   HOME: '/',
-  COLLECTIONS: 'collections',
-  FILTER_PRODUCT: 'collections/:value',
+  PRODUCTS: 'products',
+  FILTER_PRODUCT: 'products/:value',
   CART: 'cart',
   BLOG: 'blog',
   REGISTER: 'register',
