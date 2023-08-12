@@ -11,7 +11,7 @@ const homeRoutes = [
     component: Home
   },
   {
-    path: path.COLLECTIONS,
+    path: path.PRODUCTS,
     component: ProductGroup
   },
   {
