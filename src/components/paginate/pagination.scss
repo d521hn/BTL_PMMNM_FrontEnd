@@ -14,6 +14,12 @@
 
 }
 
+.box-products {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: 33% 33% 33%;
+}
+
 .active-pagination {
   color: red;
 }

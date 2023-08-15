@@ -4,26 +4,26 @@ import SliderBanner from "../../../components/slider/SliderBanner";
 // import { categoryHome } from '../../../ultils/containts'
 import { Link } from "react-router-dom";
 import { Product } from "../../../components";
-import { apiGetBrand, apiGetProducs } from "../../../apis";
+import { apiGetBrand, apiGetProducts } from "../../../apis";
 import path from "../../../ultils/path";
 
 const Home = () => {
     const [brands, setBrands] = useState(null);
-    const [products, setProducts] = useState(null)
+    const [products, setProducts] = useState(null);
 
     const fetchBrands = async () => {
-      const response = await apiGetBrand();
-      if (response.status === 200) setBrands(response.data.content);
+        const response = await apiGetBrand();
+        if (response.status === 200) setBrands(response.data.content);
     };
 
-    const fetProducts = async () => {
-      const response = await apiGetProducs();
-      if(response.status === 200) setProducts(response.data.content)
-    }
+    const fetchProducts = async () => {
+        const response = await apiGetProducts();
+        if (response.status === 200) setProducts(response.data.content);
+    };
 
     useEffect(() => {
         fetchBrands();
-        fetProducts();
+        fetchProducts();
     }, []);
 
     return (
@@ -49,9 +49,9 @@ const Home = () => {
             <div className="discover content-custom">
                 <h3 className="title-discover">Khám phá đồ chơi độc đáo</h3>
                 <div className="list-products-home">
-                  {products?.map(el => (
-                    <Product key={el.id} infoProduct={el}/>
-                  ))}
+                    {products?.map((el) => (
+                        <Product key={el.id} infoProduct={el} />
+                    ))}
                 </div>
             </div>
             <div className="video-outstanding">
