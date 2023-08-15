@@ -123,22 +123,22 @@ export const sortOld = [
   {
     id: 1,
     title: '0-2 tuổi',
-    path: '/products/1-3-tuoi'
+    path: '/products/1-3'
   },
   {
     id: 2,
     title: 'Bé gái 3-6 tuổi',
-    path: '/products/3-6-tuoi'
+    path: '/products/3-6'
   },
   {
     id: 3,
     title: 'Bé trai 3-6 tuổi',
-    path: '/products/be-tra-3-6-tuoi'
+    path: '/products/3-6'
   },
   {
     id: 4,
     title: 'Bé trai 7-12 tuổi',
-    path: '/products/be-trai-7-12tuoi'
+    path: '/products/7-12'
   },
 ]
 

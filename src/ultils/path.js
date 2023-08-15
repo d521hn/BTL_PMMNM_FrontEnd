@@ -8,7 +8,7 @@ const path = {
   REGISTER: 'register',
   LOGIN: 'login',
   CHECKOUT: 'checkout',
-  DETAIL_PRODUCT: 'detail-product',
+  DETAIL_PRODUCT: 'products/:id',
   BLOGDETAIL: 'blog/:id'
 }
 

@@ -1,13 +1,12 @@
 import React from 'react'
+import { Product } from '../index'
 
 const PagiItem = ({ currentItems }) => {
   return (
     <>
       {currentItems &&
-        currentItems.map((item) => (
-          <div>
-            <h3>Item #{item}</h3>
-          </div>
+        currentItems.map((el) => (
+          <Product key={el.id} infoProduct={el} />
         ))}
     </>
   )

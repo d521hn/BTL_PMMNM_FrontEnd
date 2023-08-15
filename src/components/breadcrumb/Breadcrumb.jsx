@@ -4,10 +4,11 @@ import useBreadcrumbs from 'use-react-router-breadcrumbs'
 import { Link } from 'react-router-dom'
 
 const Breadcrumb = ({ title }) => {
+  title && console.log('title: ', title );
   const routes = [
     { path: "/", breadcrumb: "Trang chủ" },
     { path: "/products", breadcrumb:  "Danh mục"},
-    { path: "/products/:value", breadcrumb: title },
+    { path: `/products/:name`, breadcrumb: title },
     { path: "/cart", breadcrumb: "Giỏ hàng" },
     { path: "/blog", breadcrumb: "Bài viết" },
   ];
