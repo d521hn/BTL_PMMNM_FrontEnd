@@ -1,6 +1,6 @@
 import BlogDetail from "../pages/public/blogDetail/BlogDetail";
 import Checkout from "../pages/public/checkout/Checkout";
-import { Blog, Cart, DetailProduct, Home, ProductGroup } from "../pages/public/index"
+import { Blog, Cart, DetailProduct, Home, ProductGroup, SearchProduct } from "../pages/public/index"
 import Login from "../pages/public/login/Login";
 import Register from "../pages/public/register/Register";
 import path from "../ultils/path"
@@ -46,6 +46,10 @@ const homeRoutes = [
     path: path.DETAIL_PRODUCT,
     component: DetailProduct
   },
+  {
+    path: path.SEARCH_PRODUCT,
+    component: SearchProduct
+  }
 ]
 
 const checkoutRoutes = [

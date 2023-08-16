@@ -1,0 +1,28 @@
+.title-search {
+  text-align: center;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #ccc;
+
+  h2 {
+    color: var(--main-color);
+    font-size: 40px;
+  }
+
+  p {
+    color: var(--main-color);
+    opacity: 0.8;
+  }
+}
+
+.mess-search {
+  color: var(--main-color);
+
+  span {
+    font-weight: bold;
+  }
+}
+
+.search-products {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
