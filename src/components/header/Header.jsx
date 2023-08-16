@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./header.scss";
 import { Link } from "react-router-dom";
 import path from "../../ultils/path";
@@ -6,6 +6,7 @@ import icons from "../../ultils/icons";
 import logo from "../../assets/images/logo.png";
 
 const Header = () => {
+  const [input, setInput] = useState("");
   const {
     AiOutlineSearch,
     FaFacebookF,
@@ -13,6 +14,15 @@ const Header = () => {
     FaUserCircle,
     BsFillCartFill,
   } = icons;
+
+  const handleInputSearch = (e) => {
+    setInput(e.target.value);
+  };
+
+  const handleReset = () => {
+    setInput("")
+  }
+
   return (
     <div className="w-full">
       <div className="content-custom header">
@@ -20,8 +30,12 @@ const Header = () => {
           <img src={logo} alt="" className="logo-page" />
         </Link>
         <div className="header-search">
-          <input type="text" placeholder="Bạn đang tìm đồ chơi gì?" />
-          <Link to={path.COLLECTIONS}>
+          <input
+            type="text"
+            placeholder="Bạn đang tìm đồ chơi gì?"
+            onChange={handleInputSearch}
+          />
+          <Link to={`search-result/${input}`} onClick={handleReset}>
             <AiOutlineSearch className="icon-search" />
           </Link>
         </div>
