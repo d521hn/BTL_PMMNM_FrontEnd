@@ -17,7 +17,7 @@ const Pagination = ({ itemsPerPage, items }) => {
     return (
         <>
             <div className="box-products">
-              <PagiItem currentItems={currentItems} />
+                <PagiItem currentItems={currentItems} />
             </div>
             <ReactPaginate
                 className="pagination"

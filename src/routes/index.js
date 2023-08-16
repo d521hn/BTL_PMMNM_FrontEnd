@@ -11,6 +11,14 @@ const homeRoutes = [
     component: Home
   },
   {
+    path: path.COLLECTIONS,
+    component: ProductGroup
+  },
+  {
+    path: path.FILTER_PRODUCT,
+    component: ProductGroup
+  },
+  {
     path: path.PRODUCTS,
     component: ProductGroup
   },

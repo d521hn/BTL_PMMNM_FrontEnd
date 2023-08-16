@@ -7,6 +7,7 @@ const Breadcrumb = ({ title }) => {
   title && console.log('title: ', title );
   const routes = [
     { path: "/", breadcrumb: "Trang chủ" },
+    { path: "/collections", breadcrumb:  "Danh mục"},
     { path: "/products", breadcrumb:  "Danh mục"},
     { path: `/products/:name`, breadcrumb: title },
     { path: "/cart", breadcrumb: "Giỏ hàng" },

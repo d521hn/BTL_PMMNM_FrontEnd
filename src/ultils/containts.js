@@ -7,22 +7,22 @@ export const navigations = [
   {
     id: 1,
     name: 'Nhóm',
-    path: path.PRODUCTS
+    path: path.COLLECTIONS
   },
   {
     id: 2,
     name: 'Thương hiệu',
-    path: path.PRODUCTS
+    path: path.COLLECTIONS
   },
   {
     id: 3,
     name: 'Sale',
-    path: path.PRODUCTS
+    path: path.COLLECTIONS
   },
   {
     id: 4,
     name: 'Tuổi',
-    path: path.PRODUCTS
+    path: path.COLLECTIONS
   },
   {
     id: 5,
@@ -123,22 +123,22 @@ export const sortOld = [
   {
     id: 1,
     title: '0-2 tuổi',
-    path: '/products/1-3'
+    path: '/collections/1-3'
   },
   {
     id: 2,
     title: 'Bé gái 3-6 tuổi',
-    path: '/products/3-6'
+    path: '/collections/3-6'
   },
   {
     id: 3,
     title: 'Bé trai 3-6 tuổi',
-    path: '/products/3-6'
+    path: '/collections/3-6'
   },
   {
     id: 4,
     title: 'Bé trai 7-12 tuổi',
-    path: '/products/7-12'
+    path: '/collections/7-12'
   },
 ]
 
