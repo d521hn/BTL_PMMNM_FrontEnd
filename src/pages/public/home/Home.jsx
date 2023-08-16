@@ -31,7 +31,7 @@ const Home = () => {
             <div className="slider-banner">
                 <SliderBanner />
             </div>
-            <div className="category">
+            {/* <div className="category">
                 <h3 className="title-category">Bạn đang tìm đồ chơi gì?</h3>
                 <div className="list-category">
                     {brands?.map((el) => (
@@ -45,7 +45,7 @@ const Home = () => {
                         </Link>
                     ))}
                 </div>
-            </div>
+            </div> */}
             <div className="discover content-custom">
                 <h3 className="title-discover">Khám phá đồ chơi độc đáo</h3>
                 <div className="list-products-home">

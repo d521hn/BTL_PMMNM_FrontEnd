@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import "./header.scss";
 import { Link } from "react-router-dom";
 import path from "../../ultils/path";
@@ -22,6 +22,22 @@ const Header = () => {
   const handleReset = () => {
     setInput("")
   }
+
+  const [username2, setUserName2] = useState('');
+
+
+
+  useEffect(() => {
+    const username = sessionStorage.getItem("username");
+    setUserName2(username)
+  }, [ ])
+
+
+  const handleClickUser = () => {
+    setUserName2('');
+    sessionStorage.removeItem("username")
+  }
+
 
   return (
     <div className="w-full">
@@ -47,7 +63,8 @@ const Header = () => {
             <TfiYoutube />
           </Link>
         </div>
-        <div className="info-cart">
+        {username2}
+        <div className="info-cart" onClick={handleClickUser}>
           <Link to="/login" className="user">
             <FaUserCircle />
           </Link>

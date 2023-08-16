@@ -3,6 +3,7 @@ import './login.scss';
 import { Link } from "react-router-dom";
 import Input from '../../../components/form/Input';
 import SubmitButton from '../../../components/form/SubmitButton';
+import LoginApi from '../../../services/LoginApi';
 
 const Login = () => {
     const [showLogin, setShowLogin] = useState(true);
@@ -17,6 +18,37 @@ const Login = () => {
         setShowLogin(true);
         setShowResetPassword(false);
     };
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+    }
+
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+    }
+
+    const handleOnSubmitLogin = async (event) => {
+        event.preventDefault();
+        try {
+            const result = await LoginApi.login(email, password);
+            console.log(result);
+            if (result.role === "CUSTOMER") {
+                alert("Đăng nhập thành công");
+                sessionStorage.setItem("username", result.userName);
+                window.location.href = "/";
+            }
+            else{
+                window.location.href = "http://localhost:3001/";
+            }
+        }
+        catch {
+            alert("Đăng nhập thất bại");
+        }
+    }
+
     return (
         <div className="w-full">
             <div className="row">
@@ -25,16 +57,18 @@ const Login = () => {
                 </div>
                 <div className="col-md-6 col-xs-12">
                     {showLogin && (
-                        <form className='form-login'>
+                        <form className='form-login' onSubmit={handleOnSubmitLogin}>
                             <Input
-                                type="email"
+                                type="text"
                                 id="email"
-                                placeholder="Email"
+                                placeholder="Username"
+                                onChange={handleEmailChange}
                             />
                             <Input
                                 type="password"
                                 id="password"
                                 placeholder="Mật khẩu"
+                                onChange={handlePasswordChange}
                             />
                             <div className="action-account d-flex align-items-center">
                                 <SubmitButton text="ĐĂNG NHẬP" />
@@ -54,7 +88,7 @@ const Login = () => {
                                 placeholder="Email"
                             />
                             <div className="action-account d-flex align-items-center">
-                                <SubmitButton text="GỬI" className="btn-send"/>
+                                <SubmitButton text="GỬI" className="btn-send" />
                                 <div className="reg_pass">
                                     <Link className='custom-link' onClick={handleCancelClick}>Hủy</Link>
                                 </div>

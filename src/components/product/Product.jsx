@@ -41,7 +41,7 @@ const Product = ({ infoProduct }) => {
                 )}
             </div>
             <div className="product-detail">
-                <p className="product-vendor">{infoProduct?.brand.name}</p>
+                <p className="product-vendor">{infoProduct?.brand?.name}</p>
                 <p className="product-name">{infoProduct?.name}</p>
                 <div className="box-price">
                     {newOrSale && (

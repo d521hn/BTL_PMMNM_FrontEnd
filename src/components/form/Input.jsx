@@ -1,7 +1,7 @@
 import React from 'react';
 import './input.scss';
 
-const Input = ({ type, id, value, placeholder }) => {
+const Input = ({ type, id, value, placeholder, onChange }) => {
     return (
         <>
             <div className="form-group input1">
@@ -11,6 +11,7 @@ const Input = ({ type, id, value, placeholder }) => {
                     id={id}
                     value={value}
                     placeholder={placeholder}
+                    onChange={onChange}
                 />
             </div>
         </>
