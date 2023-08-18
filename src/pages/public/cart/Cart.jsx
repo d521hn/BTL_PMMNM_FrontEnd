@@ -10,11 +10,9 @@ import { cartArrSellector } from '../../../redux/selectors'
 const Cart = () => {
   const { BsArrowRight } = icons
   const productsCart = useSelector(cartArrSellector)
-  // const [sumPrice, setSumPrice] = useState(0)
 
   let sumPrice = 0
   productsCart.map(item => 
-    // console.log(item)
     sumPrice += item.price * item.quantity
   )
 

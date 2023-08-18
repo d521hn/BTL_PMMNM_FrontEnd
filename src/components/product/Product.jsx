@@ -17,7 +17,13 @@ const Product = ({ infoProduct }) => {
 
   const dispatch = useDispatch();
 
-  const handleAddButtonClick = () => {
+  const handleAddButtonClick = (e) => {
+    e.preventDefault();
+    alert("Đã thêm sản phẩm vào giỏ hàng");
+    dispatch(buyProduct(infoProduct));
+  };
+
+  const handleBuyNowClick = () => {
     dispatch(buyProduct(infoProduct));
   };
 
@@ -42,7 +48,9 @@ const Product = ({ infoProduct }) => {
         />
         {isShow && (
           <div className="product-action">
-            <p className="add-product">Mua ngay</p>
+            <Link to={'/cart'} className="add-product" onClick={handleBuyNowClick}>
+              Mua ngay
+            </Link>
             <p className="add-cart" onClick={handleAddButtonClick}>
               Thêm vào giỏ
             </p>
