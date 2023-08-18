@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './cart.scss'
 import { Breadcrumb, ItemProductCart } from '../../../components'
 import { Link } from 'react-router-dom'
 import icons from '../../../ultils/icons'
 import path from '../../../ultils/path'
+import { useSelector } from 'react-redux'
+import { cartArrSellector } from '../../../redux/selectors'
 
 const Cart = () => {
-  const countProducts = 0
   const { BsArrowRight } = icons
+  const productsCart = useSelector(cartArrSellector)
+  // const [sumPrice, setSumPrice] = useState(0)
+
+  let sumPrice = 0
+  productsCart.map(item => 
+    // console.log(item)
+    sumPrice += item.price * item.quantity
+  )
+
   return (
     <div className='w-full'>
       <div className="box-breadcrumb">
@@ -20,11 +30,10 @@ const Cart = () => {
               Giỏ hàng của bạn
             </h2>
             <div className="list-product-cart">
-              <p className='text-title'>Bạn đang có <span>{countProducts}</span> sản phẩm trong giỏ hàng</p>
-              <ItemProductCart />
-              <ItemProductCart />
-              <ItemProductCart />
-              <ItemProductCart />
+              <p className='text-title'>Bạn đang có <span>{productsCart.length}</span> sản phẩm trong giỏ hàng</p>
+              {productsCart.map(item => (
+                <ItemProductCart info={item}/>
+              ))}
             </div>
           </div>
           <div className='info-cart'>
@@ -33,7 +42,7 @@ const Cart = () => {
               <p className='title-info-order'>Thông tin đơn hàng</p>
               <div className='box-total-price'>
                 <p className='text-price'>Tổng tiền:</p>
-                <p className='total-price'>8,000,000đ</p>
+                <p className='total-price'>{sumPrice}</p>
               </div>
               <Link to='/checkout' >
                 <button className='btn-pay'>Thanh toán</button>

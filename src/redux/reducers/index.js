@@ -1,18 +1,19 @@
 import * as actionType from '../actions/actionType'
 
-
+const products = JSON.parse(sessionStorage.getItem('arrCart'))
 
 const initialState = {
-  cartArr: []
+  cartArr: Array.isArray(products) ? products : []
 }
 
-const cartReducer = (state = initialState, action) => {
+const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionType.BUY_PRODUCT:
       const productInCart = state.cartArr.find(
         (p) => p.id === action.payload.id
       )
       if (!productInCart) {
+        sessionStorage.setItem("arrCart", JSON.stringify([...state.cartArr, action.payload]))
         return {
           cartArr: [...state.cartArr, action.payload]
         }
@@ -26,6 +27,7 @@ const cartReducer = (state = initialState, action) => {
         } else {
           newCart[objIndex].quantity = newCart[objIndex].quantity + 1
         }
+        sessionStorage.setItem("arrCart", JSON.stringify([...newCart]))
         return { cartArr: [...newCart] }
       }
 
@@ -33,11 +35,12 @@ const cartReducer = (state = initialState, action) => {
       let newCart = state.cartArr;
       const objIndex = newCart.findIndex((obj) => obj.id == action.payload.id)
       newCart.splice(objIndex, 1)
+      sessionStorage.setItem("arrCart", JSON.stringify([...newCart]))
       return { cartArr: [...newCart] }
 
     default:
-      break;
+      return state
   }
 }
 
-export default cartReducer
+export default rootReducer
