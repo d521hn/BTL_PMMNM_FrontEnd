@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./header.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import path from "../../ultils/path";
 import icons from "../../ultils/icons";
 import logo from "../../assets/images/logo.png";
@@ -15,6 +15,8 @@ const {
 const Header = () => {
   const [input, setInput] = useState("");
   const [username2, setUserName2] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleInputSearch = (e) => {
     setInput(e.target.value);
@@ -32,11 +34,24 @@ const Header = () => {
 
   };
 
-  const navigate = useNavigate()
   const handleSearch = () => {
-    navigate(`search-result/${input}`)
-    setInput("")
+    if (input.trim() !== '') {
+      navigate(`/search-result/${input}`);
+    }
   }
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' && event.target === document.activeElement) {
+      event.preventDefault();
+      handleSearch();
+    }
+  };
+
+  useEffect(() => {
+    if(!location.pathname.includes('/search-result')){
+      setInput('');
+    }
+  }, [location.pathname]);
 
   return (
     <div className="w-full">
@@ -50,6 +65,7 @@ const Header = () => {
             placeholder="Bạn đang tìm đồ chơi gì?"
             onChange={handleInputSearch}
             value={input}
+            onKeyDown={handleKeyDown}
           />
           <AiOutlineSearch className="icon-search" onClick={handleSearch}/>
         </div>
