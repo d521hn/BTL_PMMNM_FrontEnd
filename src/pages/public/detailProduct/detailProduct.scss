@@ -117,9 +117,24 @@
       }
 
       .buy-now {
+        font-family: 'Paytone One', sans-serif;
         background-color: var(--main-color);
         border: 1px solid var(--main-color);
-        
+        font-weight: 500;
+        font-size: 18px;
+        font-weight: bold;
+        box-shadow: none;
+        padding: 14px 0px;
+        width: 48%;
+        line-height: 22px;
+        color: var(--color-white);
+        border-radius: 10px;
+        text-align: center;
+
+        &:hover {
+          background-color: var(--color-white);
+          color: var(--color-black);
+        }
       }
     }
 

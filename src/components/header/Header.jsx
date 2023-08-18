@@ -1,43 +1,42 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import path from "../../ultils/path";
 import icons from "../../ultils/icons";
 import logo from "../../assets/images/logo.png";
+const {
+  AiOutlineSearch,
+  FaFacebookF,
+  TfiYoutube,
+  FaUserCircle,
+  BsFillCartFill,
+} = icons;
 
 const Header = () => {
   const [input, setInput] = useState("");
-  const {
-    AiOutlineSearch,
-    FaFacebookF,
-    TfiYoutube,
-    FaUserCircle,
-    BsFillCartFill,
-  } = icons;
+  const [username2, setUserName2] = useState("");
 
   const handleInputSearch = (e) => {
     setInput(e.target.value);
   };
 
-  const handleReset = () => {
-    setInput("")
-  }
-
-  const [username2, setUserName2] = useState('');
-
-
-
   useEffect(() => {
     const username = sessionStorage.getItem("username");
-    setUserName2(username)
-  }, [ ])
-
+    setUserName2(username);
+  }, []);
 
   const handleClickUser = () => {
-    setUserName2('');
-    sessionStorage.removeItem("username")
-  }
+    setUserName2("");
+    sessionStorage.removeItem("username");
+    sessionStorage.removeItem("emailUser");
 
+  };
+
+  const navigate = useNavigate()
+  const handleSearch = () => {
+    navigate(`search-result/${input}`)
+    setInput("")
+  }
 
   return (
     <div className="w-full">
@@ -50,10 +49,9 @@ const Header = () => {
             type="text"
             placeholder="Bạn đang tìm đồ chơi gì?"
             onChange={handleInputSearch}
+            value={input}
           />
-          <Link to={`search-result/${input}`} onClick={handleReset}>
-            <AiOutlineSearch className="icon-search" />
-          </Link>
+          <AiOutlineSearch className="icon-search" onClick={handleSearch}/>
         </div>
         <div className="social">
           <Link to={"https://www.facebook.com/"} className="facebook">
