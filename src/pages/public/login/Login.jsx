@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import Input from "../../../components/form/Input";
 import SubmitButton from "../../../components/form/SubmitButton";
 import LoginApi from "../../../services/LoginApi";
+import {
+  apiGetCart,
+  apiGetUserByEmail,
+  apiProductsByCart,
+} from "../../../apis";
 
 const Login = () => {
   const [showLogin, setShowLogin] = useState(true);
@@ -30,14 +35,33 @@ const Login = () => {
     setPassword(event.target.value);
   };
 
+  const fetchIdUserByEmail = async (email) => {
+    const response = await apiGetUserByEmail(email);
+    return response.data?.id;
+  };
+
+  const fetchCartByIdUser = async (uid) => {
+    const response = await apiGetCart(uid);
+    return response.data?.id;
+  };
+
+  const fetchProductsInCart = async (cid) => {
+    const response = await apiProductsByCart(cid);
+    return response.data;
+  };
+
   const handleOnSubmitLogin = async (event) => {
     event.preventDefault();
     try {
       const result = await LoginApi.login(email, password);
       if (result.role === "CUSTOMER") {
-        console.log(result);
-        sessionStorage.setItem("emailUser", result.email);
         sessionStorage.setItem("username", result.userName);
+        const idUser = await fetchIdUserByEmail(result.email);
+        const idCart = await fetchCartByIdUser(idUser);
+        const arrCart = idCart && (await fetchProductsInCart(idCart));
+        arrCart
+          ? sessionStorage.setItem("arrCart", JSON.stringify(arrCart))
+          : sessionStorage.setItem("arrCart", JSON.stringify("[]"));
         window.location.href = "/";
       } else {
         window.location.href = "http://localhost:3001/";

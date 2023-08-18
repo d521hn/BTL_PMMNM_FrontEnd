@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import path from "../../ultils/path";
 import icons from "../../ultils/icons";
 import logo from "../../assets/images/logo.png";
+import { useSelector } from "react-redux";
+import { cartArrSellector } from "../../redux/selectors";
 const {
   AiOutlineSearch,
   FaFacebookF,
@@ -27,16 +29,21 @@ const Header = () => {
 
   const handleClickUser = () => {
     setUserName2("");
-    sessionStorage.removeItem("username");
-    sessionStorage.removeItem("emailUser");
-
+    sessionStorage.clear();
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleSearch = () => {
-    navigate(`search-result/${input}`)
-    setInput("")
-  }
+    navigate(`search-result/${input}`);
+    setInput("");
+  };
+
+  const [countProducts, setCountProducts] = useState(0);
+
+  const productsCart = useSelector(cartArrSellector);
+  useEffect(() => {
+    setCountProducts(productsCart.length)
+  }, [productsCart]);
 
   return (
     <div className="w-full">
@@ -51,7 +58,7 @@ const Header = () => {
             onChange={handleInputSearch}
             value={input}
           />
-          <AiOutlineSearch className="icon-search" onClick={handleSearch}/>
+          <AiOutlineSearch className="icon-search" onClick={handleSearch} />
         </div>
         <div className="social">
           <Link to={"https://www.facebook.com/"} className="facebook">
@@ -62,13 +69,13 @@ const Header = () => {
           </Link>
         </div>
         {username2}
-        <div className="info-cart" onClick={handleClickUser}>
-          <Link to="/login" className="user">
+        <div className="info-cart">
+          <Link to="/login" className="user" onClick={handleClickUser}>
             <FaUserCircle />
           </Link>
           <Link to={path.CART} className="cart">
             <BsFillCartFill />
-            <span className="count-products">(0)</span>
+            <span className="count-products">({countProducts})</span>
           </Link>
         </div>
       </div>
