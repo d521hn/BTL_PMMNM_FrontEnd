@@ -20,11 +20,11 @@ const Product = ({ infoProduct }) => {
   const handleAddButtonClick = (e) => {
     e.preventDefault();
     alert("Đã thêm sản phẩm vào giỏ hàng");
-    dispatch(buyProduct(infoProduct));
+    dispatch(buyProduct({...infoProduct, quantity: 1}));
   };
 
   const handleBuyNowClick = () => {
-    dispatch(buyProduct(infoProduct));
+    dispatch(buyProduct({...infoProduct, quantity: 1}));
   };
 
   return (
