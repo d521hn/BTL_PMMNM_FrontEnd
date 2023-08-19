@@ -30,7 +30,7 @@ const CheckoutReturn = () => {
     useEffect(() => {
         const getOrderById = async () => {
             try {
-                const result = await OrderApi.getById(1);
+                const result = await OrderApi.getById(orderId);
                 setOrder(result);
                 setShip(result.ship);
             }
@@ -83,7 +83,7 @@ const CheckoutReturn = () => {
                                 <span>{ship.phoneNumber}</span>
                             </p>
                             <p>
-                                <span>Số điện thoại: </span>
+                                <span>Địa chỉ: </span>
                                 <span>{ship.address}</span>
                             </p>
                         </div>

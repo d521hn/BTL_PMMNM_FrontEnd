@@ -8,6 +8,7 @@ import ProductCheckout from '../../../components/itemProductCheckout/ProductChec
 import ProductCartApi from '../../../services/ProducCartApi'
 import OrderApi from '../../../services/OrderApi'
 import PaymentApi from '../../../services/PaymentApi'
+import ProductOrderApi from '../../../services/ProductOrderApi'
 
 const Checkout = () => {
     const [showTransferDetail, setShowTransferDetail] = useState(false);
@@ -59,22 +60,30 @@ const Checkout = () => {
     productsCheckout.map(item =>
         sumPrice += (item.product.price * item.quantity)
     )
-    let totalPrice = sumPrice - 40000;
+    let totalPrice = sumPrice + 40000;
 
     const handleSubmitCheckout = async (event) => {
         event.preventDefault();
         try {
             //Tạo order mới
-            // await OrderApi.create(1,1,"pending", paymentMethod, "Chưa thanh toán");
-            // alert("Đặt hàng thành công");
+            await OrderApi.create(1, 1, "pending", paymentMethod, "Chưa thanh toán");
+            alert("Đặt hàng thành công");
+
+            //Lấy mã order vừa tạo
+            const orders = await OrderApi.getByShipId(1);
+            let orderId = orders[0].id;
+
+            console.log(productsCheckout);
+
+            //Thêm sản phẩm
+            for (const item of productsCheckout) {
+                await ProductOrderApi.create(item.id.productId, orderId, item.quantity, item.product.price);
+            }
 
             if (paymentMethod !== "MOMO") {
-                alert("Thanh toán thành công");
+                window.location.href = `/checkoutReturn?vnp_OrderInfo=${orderId}&vnp_Amount=${totalPrice}`;
             }
             else {
-                //Lấy mã order vừa tạo
-                const orders = await OrderApi.getByShipId(1);
-                let orderId = orders[0].id;
 
                 //Thanh toán
                 const result = await PaymentApi.create(orderId, totalPrice);
