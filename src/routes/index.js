@@ -1,5 +1,6 @@
 import BlogDetail from "../pages/public/blogDetail/BlogDetail";
 import Checkout from "../pages/public/checkout/Checkout";
+import CheckoutReturn from "../pages/public/checkout/CheckoutReturn";
 import { Blog, Cart, DetailProduct, Home, ProductGroup, SearchProduct } from "../pages/public/index"
 import Login from "../pages/public/login/Login";
 import Register from "../pages/public/register/Register";
@@ -49,6 +50,10 @@ const homeRoutes = [
   {
     path: path.SEARCH_PRODUCT,
     component: SearchProduct
+  },
+  {
+    path: path.CHECKOUT_RETURN,
+    component: CheckoutReturn
   }
 ]
 

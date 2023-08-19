@@ -1,18 +1,105 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './checkout.scss'
 import { Link } from 'react-router-dom'
 import Input from '../../../components/form/checkout/Input'
 import RadioButton from '../../../components/form/checkout/RadioButton'
 import SubmitButton from '../../../components/form/SubmitButton';
 import ProductCheckout from '../../../components/itemProductCheckout/ProductCheckout'
+import ProductCartApi from '../../../services/ProducCartApi'
+import OrderApi from '../../../services/OrderApi'
+import PaymentApi from '../../../services/PaymentApi'
+import ProductOrderApi from '../../../services/ProductOrderApi'
 
 const Checkout = () => {
     const [showTransferDetail, setShowTransferDetail] = useState(false);
 
+    const [paymentMethod, setPaymentMethod] = useState("");
+
     const handleRadioButtonClick = (event) => {
         setShowTransferDetail(event.target.id === "transfer" ? true : false);
+        setPaymentMethod(event.target.value);
+        // console.log(paymentMethod);
     };
 
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [address, setAdrress] = useState("");
+
+    const handleFullNameChange = (event) => {
+        setFullName(event.target.value);
+    };
+
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+    };
+
+    const handlePhoneChange = (event) => {
+        setPhoneNumber(event.target.value);
+    };
+
+    const handleAddressChange = (event) => {
+        setAdrress(event.target.value);
+    };
+
+    const [productsCheckout, setProductsCheckout] = useState([]);
+
+    useEffect(() => {
+        const getProductCheckout = async () => {
+            try {
+                const result = await ProductCartApi.getByCartId();
+                setProductsCheckout(result);
+            }
+            catch {
+
+            }
+        }
+        getProductCheckout();
+    }, [])
+
+    let sumPrice = 0
+    productsCheckout.map(item =>
+        sumPrice += (item.product.price * item.quantity)
+    )
+    let totalPrice = sumPrice + 40000;
+
+    const handleSubmitCheckout = async (event) => {
+        event.preventDefault();
+        try {
+            //Tạo order mới
+            await OrderApi.create(1, 1, "pending", "VNPAY", "Đã thanh toán");
+            alert("Đặt hàng thành công");
+
+            //Lấy mã order vừa tạo
+            const orders = await OrderApi.getByShipId(1);
+            let orderId = orders[0].id;
+
+            console.log(productsCheckout);
+
+            //Thêm sản phẩm
+            for (const item of productsCheckout) {
+                await ProductOrderApi.create(item.id.productId, orderId, item.quantity, item.product.price);
+            }
+
+            //Thanh toán
+            const result = await PaymentApi.create(orderId, totalPrice);
+            window.location.href = result.url;
+
+            // if (paymentMethod !== "VNPAY") {
+            //     window.location.href = `/checkoutReturn?vnp_OrderInfo=${orderId}&vnp_Amount=${totalPrice}`;
+            // }
+            // else {
+
+            //     //Thanh toán
+            //     const result = await PaymentApi.create(orderId, totalPrice);
+            //     window.location.href = result.url;
+            // }
+
+
+        } catch (error) {
+
+        }
+    }
     return (
         <div className="row">
             <div className="col-md-7 col-xs-12 col-checkout-left">
@@ -27,7 +114,7 @@ const Checkout = () => {
                     </li>
                     <li className="breadcrumb-item">Thông tin giao hàng</li>
                 </div>
-                <form className='form-checkout'>
+                <form className='form-checkout' onSubmit={handleSubmitCheckout}>
                     <div className="delivery-info">
                         <h3>Thông tin giao hàng</h3>
                         <div className="form-group row">
@@ -36,6 +123,7 @@ const Checkout = () => {
                                     type="text"
                                     id="name"
                                     placeholder="Họ và tên"
+                                    onChange={handleFullNameChange}
                                 />
                             </div>
                         </div>
@@ -45,6 +133,7 @@ const Checkout = () => {
                                     type="email"
                                     id="email"
                                     placeholder="Email"
+                                    onChange={handleEmailChange}
                                 />
                             </div>
                             <div class="col-md-4">
@@ -52,6 +141,7 @@ const Checkout = () => {
                                     type="tel"
                                     id="tel"
                                     placeholder="Số điện thoại"
+                                    onChange={handlePhoneChange}
                                 />
                             </div>
                         </div>
@@ -61,6 +151,7 @@ const Checkout = () => {
                                     type="text"
                                     id="name"
                                     placeholder="Địa chỉ"
+                                    onChange={handleAddressChange}
                                 />
                             </div>
                         </div>
@@ -73,12 +164,14 @@ const Checkout = () => {
                                     id="cod"
                                     lableName="Thanh toán khi giao hàng (COD)"
                                     linkImg="https://hstatic.net/0/0/global/design/seller/image/payment/cod.svg?v=4"
+                                    value="COD"
                                     onClick={handleRadioButtonClick}
                                 />
                                 <RadioButton
                                     id="transfer"
                                     lableName="Chuyển khoản ngân hàng"
                                     linkImg="https://hstatic.net/0/0/global/design/seller/image/payment/other.svg?v=4"
+                                    value="BANKING"
                                     onClick={handleRadioButtonClick}
                                 />
                                 {showTransferDetail && (
@@ -101,9 +194,10 @@ const Checkout = () => {
                                 )}
 
                                 <RadioButton
-                                    id="momo"
-                                    lableName="Ví MoMo"
-                                    linkImg="https://hstatic.net/0/0/global/design/seller/image/payment/momo.svg?v=4"
+                                    id="vnpay"
+                                    lableName="VNPAY"
+                                    linkImg="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Icon-VNPAY-QR.png"
+                                    value="VNPAY"
                                     onClick={handleRadioButtonClick}
                                 />
                             </div>
@@ -119,9 +213,9 @@ const Checkout = () => {
             </div>
             <div className="col-md-5 col-xs-12 col-checkout-right">
                 <div className="list-product">
-                    <ProductCheckout />
-                    <ProductCheckout />
-                    <ProductCheckout />
+                    {productsCheckout.map(item => (
+                        <ProductCheckout info={item} />
+                    ))}
                 </div>
                 <form className='form-discount'>
                     <div className="row">
@@ -140,16 +234,16 @@ const Checkout = () => {
                 <div className="price">
                     <div className="subtotal d-flex justify-content-between pb-3">
                         <span>Tạm tính</span>
-                        <span>6,504,000₫</span>
+                        <span>{sumPrice.toLocaleString("vi-VN")}₫</span>
                     </div>
                     <div className="shipping-price d-flex justify-content-between">
                         <span>Phí vận chuyển</span>
-                        <span>40,000₫</span>
+                        <span>40.000₫</span>
                     </div>
                 </div>
                 <div className="total-price d-flex justify-content-between align-items-center">
                     <span>Tổng cộng</span>
-                    <span>6,544,000₫</span>
+                    <span>{totalPrice.toLocaleString("vi-VN")}₫</span>
                 </div>
             </div>
         </div>

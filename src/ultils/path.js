@@ -11,7 +11,8 @@ const path = {
   PRODUCTS: 'products',
   DETAIL_PRODUCT: 'products/:id',
   BLOGDETAIL: 'blog/:id',
-  SEARCH_PRODUCT: 'search-result/:value'
+  SEARCH_PRODUCT: 'search-result/:value',
+  CHECKOUT_RETURN: 'checkoutReturn'
 }
 
 export default path

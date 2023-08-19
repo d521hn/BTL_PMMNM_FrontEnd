@@ -56,6 +56,7 @@ const Login = () => {
       const result = await LoginApi.login(email, password);
       if (result.role === "CUSTOMER") {
         sessionStorage.setItem("username", result.userName);
+        sessionStorage.setItem("userId", result.id);
         const idUser = await fetchIdUserByEmail(result.email);
         const idCart = await fetchCartByIdUser(idUser);
         const arrCart = idCart && (await fetchProductsInCart(idCart));

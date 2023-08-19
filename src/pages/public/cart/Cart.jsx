@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './cart.scss'
 import { Breadcrumb, ItemProductCart } from '../../../components'
 import { Link } from 'react-router-dom'
@@ -6,14 +6,32 @@ import icons from '../../../ultils/icons'
 import path from '../../../ultils/path'
 import { useSelector } from 'react-redux'
 import { cartArrSellector } from '../../../redux/selectors'
+import { async } from 'q'
+import axios from 'axios'
+import ProductCartApi from '../../../services/ProducCartApi'
 
 const Cart = () => {
   const { BsArrowRight } = icons
-  const productsCart = useSelector(cartArrSellector)
+  // const productsCart = useSelector(cartArrSellector)
+  const [productsCart, setProductsCart] = useState([]);
+
+  useEffect(() => {
+    const getProductCart = async () => {
+      try{
+        const result = await ProductCartApi.getByCartId();
+        console.log(result);
+        setProductsCart(result);
+      }
+      catch{
+
+      }
+    }
+    getProductCart();
+  })
 
   let sumPrice = 0
   productsCart.map(item => 
-    sumPrice += item.price * item.quantity
+    sumPrice += (item.product.price * item.quantity)
   )
 
   return (
@@ -40,7 +58,7 @@ const Cart = () => {
               <p className='title-info-order'>Thông tin đơn hàng</p>
               <div className='box-total-price'>
                 <p className='text-price'>Tổng tiền:</p>
-                <p className='total-price'>{sumPrice}</p>
+                <p className='total-price'>{sumPrice.toLocaleString("vi-VN")} đ</p>
               </div>
               <Link to='/checkout' >
                 <button className='btn-pay'>Thanh toán</button>
