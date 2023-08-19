@@ -28,7 +28,10 @@
         background-color: black;
         color: white;
         text-align: center;
-        line-height: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         font-size: 14px;
       }
   
