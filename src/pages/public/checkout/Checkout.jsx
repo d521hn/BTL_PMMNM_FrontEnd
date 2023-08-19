@@ -18,6 +18,7 @@ const Checkout = () => {
     const handleRadioButtonClick = (event) => {
         setShowTransferDetail(event.target.id === "transfer" ? true : false);
         setPaymentMethod(event.target.value);
+        // console.log(paymentMethod);
     };
 
     const [fullName, setFullName] = useState("");
@@ -66,7 +67,7 @@ const Checkout = () => {
         event.preventDefault();
         try {
             //Tạo order mới
-            await OrderApi.create(1, 1, "pending", paymentMethod, "Chưa thanh toán");
+            await OrderApi.create(1, 1, "pending", "VNPAY", "Đã thanh toán");
             alert("Đặt hàng thành công");
 
             //Lấy mã order vừa tạo
@@ -80,15 +81,19 @@ const Checkout = () => {
                 await ProductOrderApi.create(item.id.productId, orderId, item.quantity, item.product.price);
             }
 
-            if (paymentMethod !== "MOMO") {
-                window.location.href = `/checkoutReturn?vnp_OrderInfo=${orderId}&vnp_Amount=${totalPrice}`;
-            }
-            else {
+            //Thanh toán
+            const result = await PaymentApi.create(orderId, totalPrice);
+            window.location.href = result.url;
 
-                //Thanh toán
-                const result = await PaymentApi.create(orderId, totalPrice);
-                window.location.href = result.url;
-            }
+            // if (paymentMethod !== "VNPAY") {
+            //     window.location.href = `/checkoutReturn?vnp_OrderInfo=${orderId}&vnp_Amount=${totalPrice}`;
+            // }
+            // else {
+
+            //     //Thanh toán
+            //     const result = await PaymentApi.create(orderId, totalPrice);
+            //     window.location.href = result.url;
+            // }
 
 
         } catch (error) {
@@ -189,10 +194,10 @@ const Checkout = () => {
                                 )}
 
                                 <RadioButton
-                                    id="momo"
-                                    lableName="Ví MoMo"
-                                    linkImg="https://hstatic.net/0/0/global/design/seller/image/payment/momo.svg?v=4"
-                                    value="MOMO"
+                                    id="vnpay"
+                                    lableName="VNPAY"
+                                    linkImg="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Icon-VNPAY-QR.png"
+                                    value="VNPAY"
                                     onClick={handleRadioButtonClick}
                                 />
                             </div>
