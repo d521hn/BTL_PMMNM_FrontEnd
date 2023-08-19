@@ -3,8 +3,6 @@ import './itemProductCart.scss'
 import icons from '../../ultils/icons'
 import { useDispatch } from 'react-redux'
 import { changeQuantity, deleteProduct } from '../../redux/actions/actions'
-import { deleteProduct } from '../../redux/actions/actions'
-import axios from 'axios'
 import ProductCartApi from '../../services/ProducCartApi'
 
 const ItemProductCart = ({info}) => {
