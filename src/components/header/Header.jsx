@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./header.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import path from "../../ultils/path";
 import icons from "../../ultils/icons";
 import logo from "../../assets/images/logo.png";
@@ -17,6 +17,8 @@ const {
 const Header = () => {
   const [input, setInput] = useState("");
   const [username2, setUserName2] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleInputSearch = (e) => {
     setInput(e.target.value);
@@ -32,7 +34,6 @@ const Header = () => {
     sessionStorage.clear();
   };
 
-  const navigate = useNavigate();
   const handleSearch = () => {
     navigate(`search-result/${input}`);
     setInput("");
@@ -57,6 +58,7 @@ const Header = () => {
             placeholder="Bạn đang tìm đồ chơi gì?"
             onChange={handleInputSearch}
             value={input}
+            // onKeyDown={handleKeyDown}
           />
           <AiOutlineSearch className="icon-search" onClick={handleSearch} />
         </div>

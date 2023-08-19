@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { formatPrice, numberWithCommas } from "../../ultils/helpers";
 import { useDispatch } from "react-redux";
 import { buyProduct } from "../../redux/actions/actions";
+import axios from "axios";
 
 const Product = ({ infoProduct }) => {
   const [isShow, setIsShow] = useState(null);
@@ -17,10 +18,25 @@ const Product = ({ infoProduct }) => {
 
   const dispatch = useDispatch();
 
-  const handleAddButtonClick = (e) => {
+  const addProductToCart = async () => {
+    try{
+        axios.post('http://localhost:8080/api/v1/productcarts', 
+        {
+          cartId: 3,
+          productId: infoProduct.id,
+          quantity: 1
+        })
+    }
+    catch{
+
+    }
+  }
+
+  const handleAddButtonClick = async (e) => {
     e.preventDefault();
     alert("Đã thêm sản phẩm vào giỏ hàng");
     dispatch(buyProduct({...infoProduct, quantity: 1}));
+    addProductToCart();
   };
 
   const handleBuyNowClick = () => {
