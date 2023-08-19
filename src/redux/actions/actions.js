@@ -1,4 +1,4 @@
-import * as actionType from './actionTypes'
+import * as actionType from './actionType'
 
 export const buyProduct = (product) => {
   return {

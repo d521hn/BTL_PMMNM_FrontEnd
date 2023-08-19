@@ -1,0 +1,1 @@
+export const cartArrSellector = (state) => state.cartArr
