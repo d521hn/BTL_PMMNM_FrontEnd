@@ -38,6 +38,12 @@ const rootReducer = (state = initialState, action) => {
       sessionStorage.setItem("arrCart", JSON.stringify([...newCart]))
       return { cartArr: [...newCart] }
 
+    case actionType.CHANGE_QUANTITY:
+      let newCart1 = state.cartArr
+      const objIndex1 = newCart1.findIndex((obj) => obj.id == action.payload.id)
+      newCart1[objIndex1].quantity = action.payload.quantity
+      sessionStorage.setItem("arrCart", JSON.stringify([...newCart1]))
+      return { cartArr: [...newCart1] }
     default:
       return state
   }

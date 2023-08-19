@@ -9,7 +9,8 @@ import {
   countPrice,
 } from "../../../ultils/helpers";
 import { Link } from "react-router-dom";
-import path from "../../../ultils/path";
+import { useDispatch } from "react-redux";
+import { buyProduct } from "../../../redux/actions/actions";
 
 const DetailProduct = () => {
   const [quantity, setQuantity] = useState(1);
@@ -58,6 +59,18 @@ const DetailProduct = () => {
     } else {
       setQuantity(number);
     }
+  };
+
+  const dispatch = useDispatch()
+
+  const handleByNow = () => {
+    dispatch(buyProduct({...product, quantity: quantity}));
+  }
+
+  const handleAddButtonClick = (e) => {
+    e.preventDefault();
+    alert("Đã thêm sản phẩm vào giỏ hàng");
+    dispatch(buyProduct({...product, quantity: quantity}));
   };
 
   return (
@@ -110,8 +123,8 @@ const DetailProduct = () => {
             </div>
 
             <div className="addcart-buynow">
-              <button className="add-to-cart">Thêm vào giỏ</button>
-              <Link to={"/cart"} className="buy-now">
+              <button className="add-to-cart" onClick={handleAddButtonClick}>Thêm vào giỏ</button>
+              <Link to={"/cart"} className="buy-now" onClick={handleByNow}>
                 Mua ngay
               </Link>
             </div>
