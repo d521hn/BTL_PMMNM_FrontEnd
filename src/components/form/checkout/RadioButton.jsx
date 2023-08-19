@@ -1,7 +1,7 @@
 import React from 'react'
 import './radioButton.scss'
 
-const RadioButton = ({id, lableName, linkImg, onClick}) => {
+const RadioButton = ({id, lableName, linkImg, value, onClick}) => {
     return (
         <div className="form-check form-check2 d-flex align-items-center">
             <input
@@ -11,6 +11,7 @@ const RadioButton = ({id, lableName, linkImg, onClick}) => {
                 id={id}
                 onClick={onClick}
                 defaultChecked=""
+                value={value}
             />
             <label className="form-check-label d-flex align-items-center" htmlFor={id}>
                 <div className="label-img">

@@ -34,7 +34,6 @@ const Header = () => {
     sessionStorage.clear();
   };
 
-  const navigate = useNavigate();
   const handleSearch = () => {
     navigate(`search-result/${input}`);
     setInput("");
@@ -59,7 +58,7 @@ const Header = () => {
             placeholder="Bạn đang tìm đồ chơi gì?"
             onChange={handleInputSearch}
             value={input}
-            onKeyDown={handleKeyDown}
+            // onKeyDown={handleKeyDown}
           />
           <AiOutlineSearch className="icon-search" onClick={handleSearch} />
         </div>
