@@ -2,8 +2,7 @@ import React, { memo, useState } from 'react'
 import './itemProductCart.scss'
 import icons from '../../ultils/icons'
 import { useDispatch } from 'react-redux'
-import { deleteProduct } from '../../redux/actions/actions'
-import axios from 'axios'
+import { changeQuantity, deleteProduct } from '../../redux/actions/actions'
 import ProductCartApi from '../../services/ProducCartApi'
 
 const ItemProductCart = ({info}) => {
@@ -20,6 +19,23 @@ const ItemProductCart = ({info}) => {
       }
     }
   }
+
+  const [quantity, setQuantity] = useState(info?.quantity)
+  
+  const handleAddQuantity = () => {
+    setQuantity(prev => ++prev)
+    dispatch(changeQuantity({...info, quantity: quantity + 1}))
+  }
+
+  const handleReduceQuantity = () => {
+    setQuantity(prev => --prev)
+    dispatch(changeQuantity({...info, quantity: quantity - 1}))
+  }
+
+  const handleChangeQuantity = () => {
+
+  }
+
   return (
     <div className='item-product-cart'>
       <div className='img-product-cart'>
@@ -30,9 +46,9 @@ const ItemProductCart = ({info}) => {
       </p>
 
       <div className='quantity-product-cart'>
-        <button>-</button>
-        <input type="text" value={info?.quantity}/>
-        <button>+</button>
+        <button onClick={handleReduceQuantity}>-</button>
+        <input type="text" value={quantity} onChange={handleChangeQuantity}/>
+        <button onClick={handleAddQuantity}>+</button>
       </div>
       <p className='price-product-cart'>{(info?.product.price).toLocaleString("vi-VN")} đ</p>
       <div className="total-delete">
