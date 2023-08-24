@@ -12,8 +12,10 @@ import {
   apiGetProducts,
   apiProductsByBrand,
   apiProductsByOld,
+  apiFillterProducts,
 } from "../../../apis";
 import { useParams } from "react-router-dom";
+import { portUrl } from "../../../ultils/containts";
 
 const ProductGroup = () => {
   const [brands, setBrands] = useState(null);
@@ -29,29 +31,57 @@ const ProductGroup = () => {
     if (response.status === 200) setProducts(response.data.content);
   };
 
-  let params = useParams();
-  let valueBrand = "";
+  let paramsUrl = useParams();
   const fetchProductByOld = async (value) => {
     const response = await apiProductsByOld(value);
     if (response.status === 200) setProducts(response.data.content);
   };
 
+  let url = new URL(`${portUrl}/products`);
+  const [urlNew, setUrlNew] = useState(url);
+
+  const fetProductsFromFillter = async (url) => {
+    const response = await apiFillterProducts(url);
+    if (response.status === 200) setProducts(response.data.content);
+  };
+
   const handleFilterByBrand = (e) => {
     if (e.target.checked) {
-      params = "";
-      valueBrand = e.target.value;
+      urlNew.searchParams.append("brandNames", e.target.value);
+      fetProductsFromFillter(urlNew);
+      setUrlNew(urlNew);
+    } else {
+      urlNew.searchParams.delete("brandNames", e.target.value);
+      fetProducts(urlNew);
+      setUrlNew(urlNew);
     }
   };
 
+  const handleFillterByPrice = (e) => {
+    if (e.target.checked) {
+      let value = e.target.value
+      let minmax = value.split("-")
+      urlNew.searchParams.append("minPrice", minmax[0]);
+      urlNew.searchParams.append("maxPrice", minmax[1]);
+      console.log(urlNew);
+      fetProductsFromFillter(urlNew);
+    } else {
+      urlNew.searchParams.delete("minPrice", e.target.value);
+      urlNew.searchParams.delete("maxPrice", e.target.value);
+      fetProducts(urlNew);
+      setUrlNew(urlNew);
+    }
+  }
+
   useEffect(() => {
-    if (params.value) {
+    if (paramsUrl.value) {
       fetchBrands();
-      fetchProductByOld(params.value);
+      fetchProductByOld(paramsUrl.value);
     } else {
       fetchBrands();
       fetProducts();
     }
-  }, [params.value, valueBrand]);
+  }, [paramsUrl.value]);
 
   return (
     <div className="w-full">
@@ -66,11 +96,15 @@ const ProductGroup = () => {
               brands={brands}
               handleFilterByBrand={handleFilterByBrand}
             />
-            <SortPrice />
+            <SortPrice handleFillterByPrice={handleFillterByPrice} />
           </div>
           <div className="container-products">
             <div className="content-custom box-pagination">
-              {products && <Pagination itemsPerPage={6} items={products} />}
+              {products?.length > 0 ? (
+                <Pagination itemsPerPage={6} items={products} />
+              ) : (
+                <div className="empty-product">Không tìm thấy sản phẩm</div>
+              )}
             </div>
           </div>
         </div>

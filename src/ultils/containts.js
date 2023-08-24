@@ -122,23 +122,28 @@ export const categoryHome = [
 export const sortOld = [
   {
     id: 1,
-    title: '0-2 tuổi',
-    path: '/collections/1-3'
+    title: '1-3 tuổi',
+    path: '/collections/1-3',
+    value: '1-3'
   },
   {
     id: 2,
     title: 'Bé gái 3-6 tuổi',
-    path: '/collections/3-6'
+    path: '/collections/3-6',
+    value: '3-6'
+
   },
   {
     id: 3,
     title: 'Bé trai 3-6 tuổi',
-    path: '/collections/3-6'
+    path: '/collections/3-6',
+    value: ''
   },
   {
     id: 4,
     title: 'Bé trai 7-12 tuổi',
-    path: '/collections/7-12'
+    path: '/collections/7-12',
+    value: '7-12'
   },
 ]
 
@@ -159,30 +164,30 @@ export const listCheckboxPrice = [
   {
     id: 1,
     title: "Dưới 200.000đ",
-    value: ""
+    value: "0-200000"
   },
 
   {
     id: 2,
     title: "200.000đ - 500.000đ",
-    value: ""
+    value: "200000-500000"
   },
 
   {
     id: 3,
     title: "500.000đ - 1.000.000đ",
-    value: ""
+    value: "500000-1000000"
   },
 
   {
     id: 4,
     title: "1.000.000đ - 1.500.000đ",
-    value: ""
+    value: "1000000-1500000"
   },
 
   {
     id: 5,
     title: "Trên 1.500.000đ",
-    value: ""
+    value: "1500000-"
   },
 ]

@@ -1,30 +1,32 @@
-import React, { useState } from 'react'
-import './sortPrice.scss'
-import { listCheckboxPrice } from '../../ultils/containts'
+import React, { useState } from "react";
+import "./sortPrice.scss";
+import { listCheckboxPrice } from "../../ultils/containts";
 
-const SortPrice = () => {
-  const [extend, setExtend] = useState(true)
+const SortPrice = ({ handleFillterByPrice }) => {
+  const [extend, setExtend] = useState(true);
   return (
-    <div className='checklist-brand'>
-      <p
-        className="title-box-filter"
-        onClick={() => setExtend(!extend)}
-      >
+    <div className="checklist-brand">
+      <p className="title-box-filter" onClick={() => setExtend(!extend)}>
         Giá sản phẩm
-        <span>{extend ? '-' : '+'}</span>
+        <span>{extend ? "-" : "+"}</span>
       </p>
       {extend && (
-        <div className='list-price'>
-          { listCheckboxPrice.map((item, index) => (
-            <div key={index} className='item-brand'>
-              <input type="checkbox" value={item.value}/>
+        <div className="list-price">
+          {listCheckboxPrice.map((item, index) => (
+            <div key={index} className="item-brand">
+              <input
+                type="checkbox"
+                value={item.value}
+                id={item.name}
+                onClick={handleFillterByPrice}
+              />
               <label>{item.title}</label>
             </div>
           ))}
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default SortPrice
+export default SortPrice;

@@ -1,62 +1,69 @@
-import React, { memo, useState } from 'react'
-import './itemProductCart.scss'
-import icons from '../../ultils/icons'
-import { useDispatch } from 'react-redux'
-import { changeQuantity, deleteProduct } from '../../redux/actions/actions'
-import ProductCartApi from '../../services/ProducCartApi'
+import React, { memo, useEffect, useState } from "react";
+import "./itemProductCart.scss";
+import icons from "../../ultils/icons";
+import { useDispatch } from "react-redux";
+import { changeQuantity, deleteProduct } from "../../redux/actions/actions";
 
-const ItemProductCart = ({info}) => {
-  const { ImBin } = icons
-  const dispatch = useDispatch()
-  const handleDeleteClick = async() => {
-    if (window.confirm("Bạn có chắc xóa sản phẩm không")) {
-      dispatch(deleteProduct(info))
-      try{
-        await ProductCartApi.deleteProduct(3, info?.product.id);
-      }
-      catch{
-
-      }
-    }
-  }
-
-  const [quantity, setQuantity] = useState(info?.quantity)
+const ItemProductCart = ({ info }) => {
+  const { ImBin } = icons;
+  const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(info.quantity);
+  const [sumPrice, setSumPrice] = useState(info?.quantity * info?.price)
   
-  const handleAddQuantity = () => {
-    setQuantity(prev => ++prev)
-    dispatch(changeQuantity({...info, quantity: quantity + 1}))
-  }
+
+  const handleDeleteClick = async () => {
+    if (window.confirm("Bạn có chắc xóa sản phẩm không")) {
+      dispatch(deleteProduct(info));
+    }
+  };
+
+  const handleAddQuantity = async () => {
+    setQuantity((prev) => ++prev);
+  };
 
   const handleReduceQuantity = () => {
-    setQuantity(prev => --prev)
-    dispatch(changeQuantity({...info, quantity: quantity - 1}))
-  }
+    if (quantity <= 1) {
+      setQuantity(1);
+    } else {
+      setQuantity((prev) => --prev);
+    }
+  };
 
-  const handleChangeQuantity = () => {
+  useEffect(() => {
+    dispatch(changeQuantity({ ...info, quantity: quantity }));
+    setSumPrice(info?.quantity * info?.price)
+  }, [quantity]);
 
-  }
+  const handleChangeQuantity = (e) => {
+    setQuantity(e.target.value)
+  };
 
   return (
-    <div className='item-product-cart'>
-      <div className='img-product-cart'>
-        <img src={info?.product.image} alt="" />  
-      </div>  
-      <p className='name-product-cart'>
-        {info?.product.name}
-      </p>
+    <div className="item-product-cart">
+      <div className="img-product-cart">
+        <img src={info.image} alt="" />
+      </div>
+      <p className="name-product-cart">{info.name}</p>
 
-      <div className='quantity-product-cart'>
+      <div className="quantity-product-cart">
         <button onClick={handleReduceQuantity}>-</button>
-        <input type="text" value={quantity} onChange={handleChangeQuantity}/>
+        <input type="text" value={quantity} onChange={handleChangeQuantity} />
         <button onClick={handleAddQuantity}>+</button>
       </div>
-      <p className='price-product-cart'>{(info?.product.price).toLocaleString("vi-VN")} đ</p>
+      <p className="price-product-cart">
+        {Number(info?.price).toLocaleString("vi-VN")} đ
+      </p>
       <div className="total-delete">
-        <p className='sum-price'>Thành tiền: <span>{ (info?.quantity * info?.product.price).toLocaleString("vi-VN") }</span></p>
-        <ImBin className='btn-delete'onClick={handleDeleteClick}/>
+        <p className="sum-price">
+          Thành tiền:{" "}
+          <span>
+            {(sumPrice).toLocaleString("vi-VN")} đ
+          </span>
+        </p>
+        <ImBin className="btn-delete" onClick={handleDeleteClick} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default memo(ItemProductCart)
+export default memo(ItemProductCart);
