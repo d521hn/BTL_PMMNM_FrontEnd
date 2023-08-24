@@ -18,25 +18,10 @@ const Product = ({ infoProduct }) => {
 
   const dispatch = useDispatch();
 
-  const addProductToCart = async () => {
-    try{
-        axios.post('http://localhost:8080/api/v1/productcarts', 
-        {
-          cartId: 3,
-          productId: infoProduct.id,
-          quantity: 1
-        })
-    }
-    catch{
-
-    }
-  }
-
   const handleAddButtonClick = async (e) => {
     e.preventDefault();
     alert("Đã thêm sản phẩm vào giỏ hàng");
     dispatch(buyProduct({...infoProduct, quantity: 1}));
-    addProductToCart();
   };
 
   const handleBuyNowClick = () => {

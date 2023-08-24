@@ -12,7 +12,10 @@
 
   .container-products {
     width: 75%;
-
+    .empty-product {
+      text-align: center;
+      margin: 50px;
+    }
   }
 
 }

@@ -28,3 +28,10 @@ export const apiProductsSearch = (param) => axios({
   url: `${portUrl}/products?search=${param}`,
   method: 'GET'
 })
+
+export const apiFillterProducts = (url) => axios({
+  url: `${url}`,
+  method: 'GET'
+})
+
+
