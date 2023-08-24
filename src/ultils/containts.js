@@ -7,12 +7,116 @@ export const navigations = [
   {
     id: 1,
     name: 'Nhóm',
-    path: path.COLLECTIONS
+    path: path.COLLECTIONS,
+    sub: [
+      {
+        id: 1,
+        name: 'Âm nhạc',
+        path: `${path.COLLECTIONS}/Âm nhạc`
+      },
+      {
+        id: 2,
+        name: 'Ba lô & phụ kiện',
+        path: `${path.COLLECTIONS}/Âm nhạc`
+      },
+      {
+        id: 3,
+        name: 'Baby',
+        path: `${path.COLLECTIONS}/Âm nhạc`
+      },
+      {
+        id: 4,
+        name: 'Búp bê',
+        path: `${path.COLLECTIONS}/Âm nhạc`
+      },
+      {
+        id: 5,
+        name: 'Con quay',
+        path: `${path.COLLECTIONS}/Âm nhạc`
+      },
+      {
+        id: 6,
+        name: 'Đồ chơi gỗ',
+        path: `${path.COLLECTIONS}/Âm nhạc`
+      },
+      {
+        id: 7,
+        name: 'Thú bông',
+        path: `${path.COLLECTIONS}/Âm nhạc`
+      },
+      {
+        id: 8,
+        name: 'Xe hơi & tàu',
+        path: `${path.COLLECTIONS}/Âm nhạc`
+      },
+    ]
   },
   {
     id: 2,
     name: 'Thương hiệu',
-    path: path.COLLECTIONS
+    path: path.COLLECTIONS,
+    sub: [
+      {
+        id: 1,
+        name: 'Ania',
+        path: `${path.COLLECTIONS}/Ania`
+      },
+      {
+        id: 2,
+        name: 'Aquabeads',
+        path: `${path.COLLECTIONS}/Aquabeads`
+      },
+      {
+        id: 3,
+        name: 'B.toys',
+        path: `${path.COLLECTIONS}/B.toys`
+      },
+      {
+        id: 4,
+        name: 'Babiators',
+        path: `${path.COLLECTIONS}/Babiators`
+      },
+      {
+        id: 5,
+        name: 'Playmobil',
+        path: `${path.COLLECTIONS}/Playmobil`
+      },
+      {
+        id: 6,
+        name: 'Babé',
+        path: `${path.COLLECTIONS}/Babé`
+      },
+      {
+        id: 7,
+        name: 'Bobi Craft',
+        path: `${path.COLLECTIONS}/Bobi Craft`
+      },
+      {
+        id: 8,
+        name: 'Dalimi',
+        path: `${path.COLLECTIONS}/Dalimi`
+      },
+      {
+        id: 9,
+        name: 'Dream girl',
+        path: `${path.COLLECTIONS}/Dream girl`
+      },
+      {
+        id: 10,
+        name: 'Driven',
+        path: `${path.COLLECTIONS}/Driven`
+      },
+      {
+        id: 11,
+        name: 'Lego',
+        path: `${path.COLLECTIONS}/Lego`
+      },
+      {
+        id: 12,
+        name: 'Licca',
+        path: `${path.COLLECTIONS}/Licca`
+      }
+    ]
   },
   {
     id: 3,
@@ -22,7 +126,24 @@ export const navigations = [
   {
     id: 4,
     name: 'Tuổi',
-    path: path.COLLECTIONS
+    path: path.COLLECTIONS,
+    sub: [
+      {
+        id: 1,
+        name: '1-2 Tuổi',
+        path: '1-2'
+      },
+      {
+        id: 2,
+        name: '3-6 Tuổi',
+        path: '3-6'
+      },
+      {
+        id: 3,
+        name: '7-12 Tuổi',
+        path: '7-12'
+      },
+    ]
   },
   {
     id: 5,

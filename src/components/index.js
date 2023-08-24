@@ -13,5 +13,6 @@ export { default as ItemBlog } from './itemBlog/ItemBlog'
 export { default as ItemBlogNew } from './itemBlogNew/ItemBlogNew'
 export { default as SliderBanner } from './slider/SliderBanner'
 export { default as Empty } from './empty/Empty'
+export { default as RenderMenu } from './navigation/RenderMenu'
 
 

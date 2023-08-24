@@ -1,20 +1,16 @@
 import React from "react";
-import './navigation.scss'
-import { Link } from "react-router-dom";
-import { navigations } from '../../ultils/containts'
-
+import "./navigation.scss";
+import { navigations } from "../../ultils/containts";
+import RenderMenu from "./RenderMenu";
 
 const Navigation = () => {
-  
-    return (
-      <div className="w-full bg-main">
-        <div className="content-custom list-navigation">
-          {navigations.map((el) => (
-            <Link to={el.path} className="item-navigation" key={el.id}>{el.name}</Link>
-          ))}
-        </div>
+  return (
+    <div className="w-full bg-main">
+      <div className="content-custom list-navigation">
+        <RenderMenu data={navigations}/>
       </div>
-    )
+    </div>
+  );
 };
 
 export default Navigation;
